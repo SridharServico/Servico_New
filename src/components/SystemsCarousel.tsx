@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Settings, Users, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Phone, Settings, Users, ArrowRight, ChevronLeft, ChevronRight, FileText } from 'lucide-react';
 
 interface SystemsCarouselProps {
   onBookingClick: () => void;
   isDarkMode: boolean;
+  activeSystem: number;
+  onSystemChange: (system: number) => void;
 }
 
-const SystemsCarousel: React.FC<SystemsCarouselProps> = ({ onBookingClick, isDarkMode }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+const SystemsCarousel: React.FC<SystemsCarouselProps> = ({ onBookingClick, isDarkMode, activeSystem, onSystemChange }) => {
+  const [currentSlide, setCurrentSlide] = useState(activeSystem - 1);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  const menuItems = [
+    { id: 1, name: 'System 1', fullName: 'Client Acquisition Engine' },
+    { id: 2, name: 'System 2', fullName: 'Operations Automation Hub' },
+    { id: 3, name: 'System 3', fullName: 'Client Success Platform' }
+  ];
 
   const systems = [
     {
@@ -87,44 +95,83 @@ const SystemsCarousel: React.FC<SystemsCarouselProps> = ({ onBookingClick, isDar
     if (!isAutoPlaying) return;
     
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % systems.length);
-    }, 8000);
+      const nextSlide = (currentSlide + 1) % systems.length;
+      setCurrentSlide(nextSlide);
+      onSystemChange(nextSlide + 1);
+    }, 5000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying, systems.length]);
+  }, [isAutoPlaying, systems.length, currentSlide, onSystemChange]);
+
+  // Update slide when activeSystem changes from header
+  useEffect(() => {
+    setCurrentSlide(activeSystem - 1);
+    setIsAutoPlaying(false);
+    // Resume auto-play after 10 seconds
+    const resumeTimer = setTimeout(() => {
+      setIsAutoPlaying(true);
+    }, 10000);
+    return () => clearTimeout(resumeTimer);
+  }, [activeSystem]);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % systems.length);
+    const nextSlide = (currentSlide + 1) % systems.length;
+    setCurrentSlide(nextSlide);
+    onSystemChange(nextSlide + 1);
     setIsAutoPlaying(false);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + systems.length) % systems.length);
+    const prevSlide = (currentSlide - 1 + systems.length) % systems.length;
+    setCurrentSlide(prevSlide);
+    onSystemChange(prevSlide + 1);
     setIsAutoPlaying(false);
   };
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
+    onSystemChange(index + 1);
     setIsAutoPlaying(false);
   };
 
   const currentSystem = systems[currentSlide];
 
   return (
-    <section className="py-16 bg-black relative overflow-hidden">
+    <section className="py-12 bg-black relative overflow-hidden">
       {/* Background gradient animation */}
       <div className="absolute inset-0 opacity-10">
         <div className={`absolute inset-0 bg-gradient-to-br ${currentSystem.color} transition-all duration-1000 ease-in-out`} />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-12">
+        {/* Main Headings */}
+        <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white transition-colors duration-300" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
             Complete AI Growth Infrastructure Systems
           </h2>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
+          <p className="text-xl max-w-3xl mx-auto leading-relaxed text-white transition-colors duration-300" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
             Three integrated systems working together to transform your practice
           </p>
+        </div>
+
+        {/* System Navigation Menu */}
+        <div className="text-center mb-8">
+          <nav className="inline-flex items-center space-x-1 bg-white/10 backdrop-blur-sm rounded-full p-2">
+            {menuItems.map((system) => (
+              <button
+                key={system.id}
+                onClick={() => goToSlide(system.id - 1)}
+                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                  activeSystem === system.id
+                    ? 'bg-white text-black shadow-lg'
+                    : 'text-white hover:bg-white/20'
+                }`}
+                style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}
+              >
+                {system.name}
+              </button>
+            ))}
+          </nav>
         </div>
 
         {/* Carousel Container */}
@@ -147,7 +194,7 @@ const SystemsCarousel: React.FC<SystemsCarouselProps> = ({ onBookingClick, isDar
           </button>
 
           {/* Main Carousel Content */}
-          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden transition-all duration-700 ease-in-out transform hover:scale-[1.02]">
+          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 ease-in-out">
             <div className={`h-2 bg-gradient-to-r ${currentSystem.color} transition-all duration-700`} />
             
             <div className="p-8 md:p-12">
@@ -157,17 +204,23 @@ const SystemsCarousel: React.FC<SystemsCarouselProps> = ({ onBookingClick, isDar
                   <currentSystem.icon className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <div className="flex items-center mb-2">
-                    <span className="text-sm font-semibold text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                      System {currentSlide + 1}
-                    </span>
-                  </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-black mb-2">
                     {currentSystem.title}
                   </h3>
                   <p className="text-lg text-gray-600">
                     {currentSystem.subtitle}
                   </p>
+                </div>
+                <div className="ml-auto">
+                  <a
+                    href={`/pdfs/${currentSystem.title.toLowerCase().replace(/\s+/g, '-')}.pdf`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-12 h-12 bg-gray-100 hover:bg-gray-200 rounded-lg transition-all duration-300 group"
+                    title={`Download ${currentSystem.title} PDF`}
+                  >
+                    <FileText className="w-6 h-6 text-gray-600 group-hover:text-gray-800 group-hover:scale-110 transition-all duration-300" />
+                  </a>
                 </div>
               </div>
 
@@ -231,22 +284,6 @@ const SystemsCarousel: React.FC<SystemsCarouselProps> = ({ onBookingClick, isDar
           </div>
         </div>
 
-        {/* Carousel Indicators */}
-        <div className="flex justify-center mt-8 space-x-3">
-          {systems.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentSlide 
-                  ? `bg-gradient-to-r ${currentSystem.color} scale-125` 
-                  : 'bg-white/30 hover:bg-white/50'
-              }`}
-              aria-label={`Go to system ${index + 1}`}
-            />
-          ))}
-        </div>
-
         {/* Progress Bar */}
         <div className="mt-6 max-w-md mx-auto">
           <div className="w-full bg-white/20 rounded-full h-1">
@@ -254,9 +291,6 @@ const SystemsCarousel: React.FC<SystemsCarouselProps> = ({ onBookingClick, isDar
               className={`h-1 bg-gradient-to-r ${currentSystem.color} rounded-full transition-all duration-700 ease-out`}
               style={{ width: `${((currentSlide + 1) / systems.length) * 100}%` }}
             />
-          </div>
-          <div className="text-center mt-2 text-white/70 text-sm">
-            {currentSlide + 1} of {systems.length}
           </div>
         </div>
 

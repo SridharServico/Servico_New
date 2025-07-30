@@ -4,6 +4,7 @@ import ThemeToggle from './components/ThemeToggle';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import SystemsCarousel from './components/SystemsCarousel';
+import SystemsSection from './components/SystemsSection';
 import WhyChooseSection from './components/WhyChooseSection';
 import ImplementationSection from './components/ImplementationSection';
 import FinalCTA from './components/FinalCTA';
@@ -12,6 +13,7 @@ import BookingModal from './components/BookingModal';
 
 function App() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [activeSystem, setActiveSystem] = useState(1);
   const { isDarkMode, theme, setTheme } = useDarkMode();
   const bookingLink = "https://cal.com/sridhar-bolanwar-qlky7g/30min";
 
@@ -23,20 +25,25 @@ function App() {
     setIsBookingModalOpen(false);
   };
 
+  const handleSystemChange = (system: number) => {
+    setActiveSystem(system);
+  };
   return (
     <div className="min-h-screen bg-black">
-      {/* Dark/Light Mode Toggle */}
-      <div className="fixed top-4 right-4 z-50">
-        <ThemeToggle 
-          theme={theme}
-          isDarkMode={isDarkMode}
-          onThemeChange={setTheme}
-        />
-      </div>
-      
-      <Header onBookingClick={handleBookingClick} isDarkMode={isDarkMode} />
+      <Header 
+        onBookingClick={handleBookingClick} 
+        isDarkMode={isDarkMode}
+        activeSystem={activeSystem}
+        onSystemChange={handleSystemChange}
+      />
       <Hero onBookingClick={handleBookingClick} isDarkMode={isDarkMode} />
-      <SystemsCarousel onBookingClick={handleBookingClick} isDarkMode={isDarkMode} />
+      <SystemsSection onBookingClick={handleBookingClick} isDarkMode={isDarkMode} />
+      <SystemsCarousel 
+        onBookingClick={handleBookingClick} 
+        isDarkMode={isDarkMode}
+        activeSystem={activeSystem}
+        onSystemChange={handleSystemChange}
+      />
       <WhyChooseSection isDarkMode={isDarkMode} />
       <ImplementationSection isDarkMode={isDarkMode} />
       <CaseStudiesSection isDarkMode={isDarkMode} />

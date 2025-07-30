@@ -13,8 +13,8 @@ const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ isDarkMode }) =
       company: "MIT & InsideSales.com Study",
       result: "21x higher conversion rates with 60-second response times",
       description: "Professional services firms responding to leads within 60 seconds achieve 21x higher conversion rates compared to 30-minute response times.",
-      link: "https://hbr.org/2011/03/the-short-life-of-online-sales-leads",
-      source: "Harvard Business Review"
+      link: "https://www.insidesales.com/insider/lead-response/",
+      source: "MIT & InsideSales.com Study"
     },
     {
       icon: Clock,
@@ -46,9 +46,9 @@ const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ isDarkMode }) =
   ];
 
   return (
-    <section className="py-16 bg-black">
+    <section className="py-12 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white transition-colors duration-300" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
             Proven ROI from Industry Leaders
           </h2>
