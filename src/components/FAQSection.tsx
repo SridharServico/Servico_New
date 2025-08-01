@@ -44,6 +44,54 @@ const FAQSection: React.FC<FAQSectionProps> = ({ isDarkMode }) => {
       question: 'Will AI replace my staff or change how we work with clients?',
       answer: 'No, AI enhances your team\'s capabilities rather than replacing them. Our systems handle repetitive administrative tasks so your professionals can focus on high-value client work, strategic thinking, and relationship building. Clients still get the personal attention they expect, but with faster response times and more consistent service.'
     },
+    {
+      id: 'general-4',
+      category: 'general',
+      question: 'Where is our data stored and who has access to it?',
+      answer: 'All data is stored in SOC 2 Type II certified data centers with military-grade encryption at rest and in transit. Only authorized personnel with security clearance can access systems, and all access is logged and monitored. We never store data outside of secure, compliant environments.'
+    },
+    {
+      id: 'general-5',
+      category: 'general',
+      question: 'Do you use our confidential client information to train AI models?',
+      answer: 'Absolutely not. Your client data remains completely confidential and is never used to train AI models or shared with any third parties. Our AI systems are trained on general business knowledge, not your specific client information or proprietary data.'
+    },
+    {
+      id: 'general-6',
+      category: 'general',
+      question: 'How do you ensure compliance with attorney-client privilege and professional confidentiality?',
+      answer: 'We maintain strict confidentiality protocols that exceed industry standards. All systems are designed with privilege protection built-in, including secure communication channels, access controls, and audit trails. We sign comprehensive confidentiality agreements and our staff undergoes regular compliance training.'
+    },
+    {
+      id: 'general-7',
+      category: 'general',
+      question: 'What certifications and security standards do you maintain?',
+      answer: 'We maintain industry-leading security certifications including: SOC 2 Type II compliance for data security; ISO 27001 information security management; GDPR compliance for data protection; State and federal regulatory compliance for professional services; Regular third-party security audits and penetration testing.'
+    },
+    {
+      id: 'general-8',
+      category: 'general',
+      question: 'What happens if there\'s a data breach or security incident?',
+      answer: 'We have comprehensive incident response protocols including immediate containment, forensic analysis, and client notification within required timeframes. Our cyber insurance and legal protections cover all stakeholders. However, our multi-layered security approach has maintained a zero-breach record across all client implementations.'
+    },
+    {
+      id: 'general-9',
+      category: 'general',
+      question: 'Can we control what data is accessible to the AI systems?',
+      answer: 'Yes, you have complete control over data access levels. We implement role-based permissions, data classification systems, and can create custom access controls based on your firm\'s policies. You decide what information each AI system can access and process.'
+    },
+    {
+      id: 'general-10',
+      category: 'general',
+      question: 'How do you handle data retention and deletion policies?',
+      answer: 'We follow your firm\'s data retention policies and can automatically delete data based on your specified timelines. All deletions are permanent and certified, with documentation provided for compliance purposes. You maintain full control over your data lifecycle.'
+    },
+    {
+      id: 'general-11',
+      category: 'general',
+      question: 'What about compliance with state bar associations and professional licensing boards?',
+      answer: 'Our systems are designed to support, not compromise, your professional obligations. We work closely with firms to ensure all AI implementations comply with state bar ethics rules, CPA professional standards, and other licensing requirements. We provide documentation to support your compliance reporting.'
+    },
 
     // Implementation & Technical Questions
     {
