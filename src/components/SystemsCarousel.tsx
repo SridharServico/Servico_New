@@ -173,30 +173,9 @@ const SystemsCarousel: React.FC<SystemsCarouselProps> = ({ onBookingClick, isDar
                 >
                   {system.name}
                 </button>
-                
-                {/* Progress Bar at Bottom of Button */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-transparent rounded-b-full overflow-hidden">
-                  {activeSystem === system.id && isAutoPlaying && (
-                    <div 
-                      className="h-full bg-white rounded-full transition-all duration-300 ease-out"
-                      style={{ 
-                        width: '100%',
-                        animation: 'progress 5s linear infinite'
-                      }}
-                    />
-                  )}
-                </div>
               </div>
             ))}
           </nav>
-          
-          {/* Add CSS animation for progress bar */}
-          <style jsx>{`
-            @keyframes progress {
-              from { width: 0%; }
-              to { width: 100%; }
-            }
-          `}</style>
         </div>
 
         {/* Carousel Container */}
