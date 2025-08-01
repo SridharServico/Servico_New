@@ -174,18 +174,18 @@ const SystemsCarousel: React.FC<SystemsCarouselProps> = ({ onBookingClick, isDar
                   {system.name}
                 </button>
                 
-                {/* Progress Bar for Active System */}
-                {activeSystem === system.id && (
-                  <div className="absolute -bottom-1 left-2 right-2 h-1 bg-white/20 rounded-full overflow-hidden">
+                {/* Progress Bar at Bottom of Button */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-transparent rounded-b-full overflow-hidden">
+                  {activeSystem === system.id && isAutoPlaying && (
                     <div 
                       className="h-full bg-white rounded-full transition-all duration-300 ease-out"
                       style={{ 
-                        width: isAutoPlaying ? '100%' : '0%',
-                        animation: isAutoPlaying ? 'progress 5s linear infinite' : 'none'
+                        width: '100%',
+                        animation: 'progress 5s linear infinite'
                       }}
                     />
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             ))}
           </nav>
