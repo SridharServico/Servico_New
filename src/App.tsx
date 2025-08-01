@@ -9,6 +9,7 @@ import WhyChooseSection from './components/WhyChooseSection';
 import ImplementationSection from './components/ImplementationSection';
 import FinalCTA from './components/FinalCTA';
 import CaseStudiesSection from './components/CaseStudiesSection';
+import FAQSection from './components/FAQSection';
 import BookingModal from './components/BookingModal';
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
       <WhyChooseSection isDarkMode={isDarkMode} />
       <ImplementationSection isDarkMode={isDarkMode} />
       <CaseStudiesSection isDarkMode={isDarkMode} />
+      <FAQSection isDarkMode={isDarkMode} />
       <FinalCTA onBookingClick={handleBookingClick} isDarkMode={isDarkMode} />
       <BookingModal 
         isOpen={isBookingModalOpen}
