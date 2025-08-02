@@ -11,6 +11,7 @@ import FinalCTA from './components/FinalCTA';
 import CaseStudiesSection from './components/CaseStudiesSection';
 import FAQSection from './components/FAQSection';
 import BookingModal from './components/BookingModal';
+import Footer from './components/Footer';
 
 function App() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
@@ -50,6 +51,7 @@ function App() {
       <CaseStudiesSection isDarkMode={isDarkMode} />
       <FAQSection isDarkMode={isDarkMode} />
       <FinalCTA onBookingClick={handleBookingClick} isDarkMode={isDarkMode} />
+      <Footer />
       <BookingModal 
         isOpen={isBookingModalOpen}
         onClose={handleCloseModal}
