@@ -50,7 +50,6 @@ function App() {
       <ImplementationSection isDarkMode={isDarkMode} />
       <CaseStudiesSection isDarkMode={isDarkMode} />
       <FAQSection isDarkMode={isDarkMode} />
-      <FinalCTA onBookingClick={handleBookingClick} isDarkMode={isDarkMode} />
       <Footer />
       <BookingModal 
         isOpen={isBookingModalOpen}
