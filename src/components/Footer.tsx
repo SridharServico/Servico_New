@@ -86,7 +86,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-black border-t border-gray-800 relative overflow-hidden">
+    <footer id="footer-section" className="bg-black border-t border-gray-800 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-900/10 via-black to-gray-800/10"></div>
@@ -110,30 +110,6 @@ const Footer = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* CTA Banner */}
-        <div className="py-12 border-b border-gray-800">
-          <div className="bg-gradient-to-r from-blue-900/20 via-purple-900/20 to-blue-900/20 backdrop-blur-xl rounded-3xl p-8 border border-white/10">
-            <div className="text-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
-                Don't Let Competitors Gain the AI Advantage
-              </h2>
-              <p className="text-gray-300 mb-6 max-w-3xl mx-auto">
-                Over 73% of professional services firms plan to implement AI within 12 months. The question isn't whether AI will transform your industry—it's whether you'll lead or follow.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <button className="btn-primary group">
-                  <Calendar className="w-5 h-5 mr-2" />
-                  Schedule Free Discovery Call
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button className="btn-secondary group">
-                  <Download className="w-5 h-5 mr-2" />
-                  Download System Proposals
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Main Footer Content */}
         <div className="py-16">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
@@ -279,7 +255,7 @@ const Footer = () => {
                   />
                   <button
                     type="submit"
-                    className="btn-primary px-6 py-3 whitespace-nowrap"
+                    className="btn-primary px-6 py-3 whitespace-nowrap btn-hover-effect"
                     disabled={isSubscribed}
                   >
                     {isSubscribed ? (
@@ -303,44 +279,23 @@ const Footer = () => {
 
               {/* Social Media & Get Started */}
               <div>
-                <h3 className="text-xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
-                  Ready to Transform Your Practice?
-                </h3>
-                
-                <div className="space-y-4 mb-6">
-                  <div className="flex items-center space-x-3">
-                    <Phone className="w-5 h-5 text-blue-400" />
-                    <span className="text-gray-300">Schedule Your Free Discovery Call</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Download className="w-5 h-5 text-blue-400" />
-                    <span className="text-gray-300">Download Our System Proposals</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <FileText className="w-5 h-5 text-blue-400" />
-                    <span className="text-gray-300">Take Our AI Readiness Assessment</span>
-                  </div>
-                </div>
-
                 {/* Social Links */}
-                <div>
-                  <h4 className="text-white font-semibold mb-4">Connect With Us</h4>
-                  <div className="flex items-center space-x-4">
-                    {socialLinks.map((social, index) => (
-                      <a
-                        key={index}
-                        href={social.href}
-                        className="w-10 h-10 bg-gray-900 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-800 hover:border-gray-600 transition-all duration-300"
-                        aria-label={social.label}
-                      >
-                        <social.icon className="w-5 h-5" />
-                      </a>
-                    ))}
-                  </div>
-                  <p className="text-gray-400 text-sm mt-3">
-                    Follow for AI implementation tips, industry insights, and client success stories.
-                  </p>
+                <h4 className="text-white font-semibold mb-4">Connect With Us</h4>
+                <div className="flex items-center space-x-4 mb-4">
+                  {socialLinks.map((social, index) => (
+                    <a
+                      key={index}
+                      href={social.href}
+                      className="w-10 h-10 bg-gray-900 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-800 hover:border-gray-600 transition-all duration-300"
+                      aria-label={social.label}
+                    >
+                      <social.icon className="w-5 h-5" />
+                    </a>
+                  ))}
                 </div>
+                <p className="text-gray-400 text-sm">
+                  Follow for AI implementation tips, industry insights, and client success stories.
+                </p>
               </div>
             </div>
           </div>
@@ -399,29 +354,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Trust Signals */}
-        <div className="pb-8">
-          <div className="text-center">
-            <p className="text-gray-300 font-semibold mb-4">
-              Trusted by Leading Professional Services Firms Nationwide
-            </p>
-            <div className="flex justify-center items-center space-x-8 opacity-60">
-              {/* Placeholder for client logos */}
-              <div className="w-24 h-12 bg-gray-800 rounded-lg flex items-center justify-center">
-                <span className="text-gray-400 text-xs">Client Logo</span>
-              </div>
-              <div className="w-24 h-12 bg-gray-800 rounded-lg flex items-center justify-center">
-                <span className="text-gray-400 text-xs">Client Logo</span>
-              </div>
-              <div className="w-24 h-12 bg-gray-800 rounded-lg flex items-center justify-center">
-                <span className="text-gray-400 text-xs">Client Logo</span>
-              </div>
-              <div className="w-24 h-12 bg-gray-800 rounded-lg flex items-center justify-center">
-                <span className="text-gray-400 text-xs">Client Logo</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </footer>
   );

@@ -64,6 +64,7 @@ const ImplementationSection: React.FC<ImplementationSectionProps> = ({ isDarkMod
   return (
     <section 
       ref={sectionRef}
+      id="implementation-section"
       className="py-20 bg-black relative overflow-hidden"
     >
       {/* Animated Background Elements */}

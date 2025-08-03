@@ -43,7 +43,7 @@ const WhyChooseSection: React.FC<WhyChooseSectionProps> = ({ isDarkMode }) => {
   ];
 
   return (
-    <section className="py-12 bg-black relative overflow-hidden">
+    <section id="why-choose-section" className="py-12 bg-black relative overflow-hidden">
       {/* Dark theme background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-900/10 via-black to-gray-800/10"></div>
