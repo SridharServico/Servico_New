@@ -21,9 +21,9 @@ const Hero: React.FC<HeroProps> = ({ onBookingClick, isDarkMode }) => {
             </span>
           </h1>
           
-          <p className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-white transition-colors duration-300" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+          <div className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-white transition-colors duration-300" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
             Transform your practice with proven AI systems that deliver measurable ROI. Industry studies show 21x higher conversion rates, 389% ROI within 30 days, and $50K-150K additional annual revenue.
-          </p>
+          </div>
           
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
             <button
