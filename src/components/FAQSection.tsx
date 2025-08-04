@@ -249,20 +249,12 @@ const FAQSection: React.FC<FAQSectionProps> = ({ isDarkMode }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-4 mb-6">
-            <div className="h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent flex-1"></div>
-            <div className="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full">
-              <span className="text-blue-400 text-sm font-medium">Frequently Asked Questions</span>
-            </div>
-            <div className="h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent flex-1"></div>
-          </div>
-          
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white relative" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
             <span className="relative z-10">Everything You Need to Know</span>
             <div className="absolute inset-0 text-blue-400/20 blur-sm">Everything You Need to Know</div>
           </h2>
           
-          <p className="text-xl max-w-3xl mx-auto text-gray-300 leading-relaxed" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
+          <p className="text-xl max-w-3xl mx-auto text-gray-300 leading-relaxed" style={{ fontFamily: "'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
             Get answers to the most common questions about AI implementation for professional services
           </p>
         </div>
