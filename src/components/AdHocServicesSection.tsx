@@ -241,14 +241,6 @@ const AdHocServicesSection: React.FC<AdHocServicesSectionProps> = ({ onBookingCl
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-4 mb-6">
-            <div className="h-px bg-gradient-to-r from-transparent via-white/40 to-transparent flex-1"></div>
-            <div className="px-4 py-2 bg-white/10 border border-white/20 rounded-full">
-              <span className="text-white text-sm font-medium">Workflows</span>
-            </div>
-            <div className="h-px bg-gradient-to-r from-transparent via-white/40 to-transparent flex-1"></div>
-          </div>
-          
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white relative" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
             <span className="relative z-10">Streamline Your Work</span>
             <div className="absolute inset-0 text-white/20 blur-sm">Streamline Your Work</div>
