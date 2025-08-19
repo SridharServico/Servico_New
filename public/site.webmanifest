@@ -1,0 +1,16 @@
+{
+  "name": "Serviqo - Smart AI Solutions for Professional Services",
+  "short_name": "Serviqo",
+  "description": "Transform your practice with proven AI systems that deliver measurable ROI",
+  "icons": [
+    {
+      "src": "/images/S_logo_favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "display": "standalone",
+  "start_url": "/"
+}
